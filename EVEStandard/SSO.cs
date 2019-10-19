@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Web;
 using EVEStandard.Enumerations;
 using EVEStandard.Models.SSO;
-using Newtonsoft.Json;
 
 namespace EVEStandard
 {
@@ -150,7 +150,7 @@ namespace EVEStandard
                 request.Headers.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
 
                 var response = await http.SendAsync(request).ConfigureAwait(false);
-                return JsonConvert.DeserializeObject<AccessTokenDetails>(await response.Content.ReadAsStringAsync());
+                return JsonSerializer.Deserialize<AccessTokenDetails>(await response.Content.ReadAsStringAsync());
             }
             catch (Exception inner)
             {
@@ -184,7 +184,7 @@ namespace EVEStandard
                 request.Headers.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
 
                 var response = await http.SendAsync(request).ConfigureAwait(false);
-                return JsonConvert.DeserializeObject<AccessTokenDetails>(await response.Content.ReadAsStringAsync());
+                return JsonSerializer.Deserialize<AccessTokenDetails>(await response.Content.ReadAsStringAsync());
             }
             catch (Exception inner)
             {
@@ -211,7 +211,7 @@ namespace EVEStandard
                 request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
 
                 var verifyResponse = await http.SendAsync(request).ConfigureAwait(false);
-                return JsonConvert.DeserializeObject<CharacterDetails>(await verifyResponse.Content.ReadAsStringAsync());
+                return JsonSerializer.Deserialize<CharacterDetails>(await verifyResponse.Content.ReadAsStringAsync());
             }
             catch (Exception inner)
             {

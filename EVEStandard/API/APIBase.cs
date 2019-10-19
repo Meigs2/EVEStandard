@@ -1,6 +1,5 @@
 ﻿using EVEStandard.Models.API;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -11,6 +10,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Web;
 
@@ -85,7 +85,7 @@ namespace EVEStandard.API
                 };
                 if ((method == HttpMethod.Post || method == HttpMethod.Put) && body != null)
                 {
-                    request.Content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
+                    request.Content = new StringContent(JsonSerializer.Serialize(body), Encoding.UTF8, "application/json");
                 }
                 if (auth?.AccessToken != null)
                 {
@@ -279,7 +279,7 @@ namespace EVEStandard.API
                 Expires = response.Expires,
                 LastModified = response.LastModified,
                 MaxPages = response.MaxPages,
-                Model = JsonConvert.DeserializeObject<T>(response.JSONString ?? "")
+                Model = JsonSerializer.Deserialize<T>(response.JSONString ?? "")
         };
         }
     }
