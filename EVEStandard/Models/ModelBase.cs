@@ -1,7 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 using System;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 
 namespace EVEStandard.Models
 {
@@ -79,7 +80,7 @@ namespace EVEStandard.Models
         ///     Returns the JSON string presentation of the object
         /// </summary>
         /// <returns>JSON string presentation of the object</returns>
-        public string ToJson() => JsonConvert.SerializeObject(this, Formatting.Indented);
+        public string ToJson() => JsonSerializer.Serialize(this);
 
         /// <summary>
         ///     Returns the string presentation of the object

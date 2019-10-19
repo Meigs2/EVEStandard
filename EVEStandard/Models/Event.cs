@@ -1,6 +1,6 @@
 ﻿using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+
 
 namespace EVEStandard.Models
 {
@@ -27,7 +27,7 @@ namespace EVEStandard.Models
         /// <value>
         /// The date.
         /// </value>
-        [JsonProperty("date")]
+        [JsonPropertyName("date")]
         public DateTime Date { get; set; }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace EVEStandard.Models
         /// <value>
         /// The duration.
         /// </value>
-        [JsonProperty("duration")]
+        [JsonPropertyName("duration")]
         public int Duration { get; set; }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace EVEStandard.Models
         /// <value>
         /// The event identifier.
         /// </value>
-        [JsonProperty("event_id")]
+        [JsonPropertyName("event_id")]
         public long EventId { get; set; }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace EVEStandard.Models
         /// <value>
         /// The importance.
         /// </value>
-        [JsonProperty("importance")]
+        [JsonPropertyName("importance")]
         public int Importance { get; set; }
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace EVEStandard.Models
         /// <value>
         /// The owner identifier.
         /// </value>
-        [JsonProperty("owner_id")]
+        [JsonPropertyName("owner_id")]
         public long OwnerId { get; set; }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace EVEStandard.Models
         /// <value>
         /// The name of the owner.
         /// </value>
-        [JsonProperty("owner_name")]
+        [JsonPropertyName("owner_name")]
         public string OwnerName { get; set; }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace EVEStandard.Models
         /// <value>
         /// The type of the owner.
         /// </value>
-        [JsonProperty("owner_type")]
+        [JsonPropertyName("owner_type")]
         public OwnerTypeEnum OwnerType { get; set; }
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace EVEStandard.Models
         /// <value>
         /// The response.
         /// </value>
-        [JsonProperty("response")]
+        [JsonPropertyName("response")]
         public string Response { get; set; }
 
         /// <summary>
@@ -99,7 +99,7 @@ namespace EVEStandard.Models
         /// <value>
         /// The text.
         /// </value>
-        [JsonProperty("text")]
+        [JsonPropertyName("text")]
         public string Text { get; set; }
 
         /// <summary>
@@ -108,7 +108,7 @@ namespace EVEStandard.Models
         /// <value>
         /// The title.
         /// </value>
-        [JsonProperty("title")]
+        [JsonPropertyName("title")]
         public string Title { get; set; }
 
         #endregion Properties

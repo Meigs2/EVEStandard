@@ -1,21 +1,21 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace EVEStandard.Models.SSO
 {
     public class CharacterDetails
     {
-        [JsonProperty("CharacterID")]
+        [JsonPropertyName("CharacterID")]
         public int CharacterId { get; set; }
-        [JsonProperty("CharacterName")]
+        [JsonPropertyName("CharacterName")]
         public string CharacterName { get; set; }
-        [JsonProperty("ExpiresOn")]
+        [JsonPropertyName("ExpiresOn")]
         public DateTime ExpiresOn { get; set; }
-        [JsonProperty("Scopes")]
+        [JsonPropertyName("Scopes")]
         public string Scopes { get; set; }
-        [JsonProperty("TokenType")]
+        [JsonPropertyName("TokenType")]
         public string TokenType { get; set; }
-        [JsonProperty("CharacterOwnerHash")]
+        [JsonPropertyName("CharacterOwnerHash")]
         public string CharacterOwnerHash { get; set; }
     }
 }
